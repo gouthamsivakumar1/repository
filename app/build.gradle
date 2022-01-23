@@ -1,0 +1,106 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdk 31
+
+    defaultConfig {
+        applicationId "com.example.repository"
+        minSdk 21
+        targetSdk 31
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+}
+
+dependencies {
+
+    // Kotlin Library
+    implementation "androidx.core:core-ktx:$kotlin_version"
+
+    //LifeCycle for ViewModel and LiveData Library
+    implementation lifecycle_libraries
+
+    //AppCompat Library
+    implementation "androidx.appcompat:appcompat:$app_combat_version"
+
+    // Material Design Library
+    implementation "com.google.android.material:material:$material_version"
+
+    // ConstraintLayout Library
+    implementation "androidx.constraintlayout:constraintlayout:$constraint_layout"
+
+
+    // Legacy support Library
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+
+    // Room Library for storing  data
+    implementation room_libraries
+
+    //kapt("androidx.room:room-compiler:2.4.1")
+
+
+    // Kotlin co-routines library
+    implementation coroutines_libraries
+
+    // Rxjava Library
+    implementation rxbinding_libraries
+
+
+    //Retrofit library
+    implementation retrofit_libraries
+
+    // navigation Library
+    implementation navigation_libraries
+
+    //Co-routines
+    implementation coroutines_libraries
+
+    //Implementation of Rxjava Library
+    implementation rxbinding_libraries
+
+
+    //Implementation Retrofit Library
+    implementation retrofit_libraries
+
+    //A powerful image and caching library
+   implementation coil_version
+
+    //implementation for koin for dependency injection
+    implementation koin_libraries
+
+    implementation 'com.android.support:multidex:1.0.3'
+
+    implementation "com.facebook.stetho:stetho-okhttp3:$facebook_stetho_version"
+
+
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+}
