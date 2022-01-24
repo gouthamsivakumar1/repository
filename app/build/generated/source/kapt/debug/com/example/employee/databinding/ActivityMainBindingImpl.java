@@ -14,11 +14,10 @@ public class ActivityMainBindingImpl extends ActivityMainBinding  {
     static {
         sIncludes = null;
         sViewsWithIds = new android.util.SparseIntArray();
-        sViewsWithIds.put(R.id.clSearch, 3);
-        sViewsWithIds.put(R.id.svSearch, 4);
-        sViewsWithIds.put(R.id.rlRefresh, 5);
-        sViewsWithIds.put(R.id.rvRepository, 6);
-        sViewsWithIds.put(R.id.progressBarVisibility, 7);
+        sViewsWithIds.put(R.id.clSearch, 4);
+        sViewsWithIds.put(R.id.svSearch, 5);
+        sViewsWithIds.put(R.id.rlRefresh, 6);
+        sViewsWithIds.put(R.id.rvRepository, 7);
         sViewsWithIds.put(R.id.tvNoInternet, 8);
         sViewsWithIds.put(R.id.btnRetry, 9);
     }
@@ -28,7 +27,7 @@ public class ActivityMainBindingImpl extends ActivityMainBinding  {
     @NonNull
     private final androidx.constraintlayout.widget.ConstraintLayout mboundView1;
     @NonNull
-    private final androidx.constraintlayout.widget.ConstraintLayout mboundView2;
+    private final androidx.constraintlayout.widget.ConstraintLayout mboundView3;
     // variables
     // values
     // listeners
@@ -40,19 +39,20 @@ public class ActivityMainBindingImpl extends ActivityMainBinding  {
     private ActivityMainBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 1
             , (androidx.appcompat.widget.AppCompatButton) bindings[9]
-            , (androidx.constraintlayout.widget.ConstraintLayout) bindings[3]
-            , (android.widget.ProgressBar) bindings[7]
-            , (androidx.swiperefreshlayout.widget.SwipeRefreshLayout) bindings[5]
-            , (androidx.recyclerview.widget.RecyclerView) bindings[6]
-            , (android.widget.SearchView) bindings[4]
+            , (androidx.constraintlayout.widget.ConstraintLayout) bindings[4]
+            , (android.widget.ProgressBar) bindings[2]
+            , (androidx.swiperefreshlayout.widget.SwipeRefreshLayout) bindings[6]
+            , (androidx.recyclerview.widget.RecyclerView) bindings[7]
+            , (android.widget.SearchView) bindings[5]
             , (androidx.appcompat.widget.AppCompatTextView) bindings[8]
             );
         this.mboundView0 = (androidx.constraintlayout.widget.ConstraintLayout) bindings[0];
         this.mboundView0.setTag(null);
         this.mboundView1 = (androidx.constraintlayout.widget.ConstraintLayout) bindings[1];
         this.mboundView1.setTag(null);
-        this.mboundView2 = (androidx.constraintlayout.widget.ConstraintLayout) bindings[2];
-        this.mboundView2.setTag(null);
+        this.mboundView3 = (androidx.constraintlayout.widget.ConstraintLayout) bindings[3];
+        this.mboundView3.setTag(null);
+        this.progressBarVisibility.setTag(null);
         setRootTag(root);
         // listeners
         invalidateAll();
@@ -61,7 +61,7 @@ public class ActivityMainBindingImpl extends ActivityMainBinding  {
     @Override
     public void invalidateAll() {
         synchronized(this) {
-                mDirtyFlags = 0x8L;
+                mDirtyFlags = 0x10L;
         }
         requestRebind();
     }
@@ -119,9 +119,15 @@ public class ActivityMainBindingImpl extends ActivityMainBinding  {
             }
             return true;
         }
-        else if (fieldId == BR.errorViewVisibility) {
+        else if (fieldId == BR.progressBarVisibility) {
             synchronized(this) {
                     mDirtyFlags |= 0x4L;
+            }
+            return true;
+        }
+        else if (fieldId == BR.errorViewVisibility) {
+            synchronized(this) {
+                    mDirtyFlags |= 0x8L;
             }
             return true;
         }
@@ -137,36 +143,49 @@ public class ActivityMainBindingImpl extends ActivityMainBinding  {
         }
         int dataCommonViewVisibility = 0;
         int dataErrorViewVisibility = 0;
+        int dataProgressBarVisibility = 0;
         com.example.employee.viewObserver.DetailsViewObserver data = mData;
 
-        if ((dirtyFlags & 0xfL) != 0) {
+        if ((dirtyFlags & 0x1fL) != 0) {
 
 
-            if ((dirtyFlags & 0xbL) != 0) {
+            if ((dirtyFlags & 0x13L) != 0) {
 
                     if (data != null) {
                         // read data.commonViewVisibility
                         dataCommonViewVisibility = data.getCommonViewVisibility();
                     }
             }
-            if ((dirtyFlags & 0xdL) != 0) {
+            if ((dirtyFlags & 0x19L) != 0) {
 
                     if (data != null) {
                         // read data.errorViewVisibility
                         dataErrorViewVisibility = data.getErrorViewVisibility();
                     }
             }
+            if ((dirtyFlags & 0x15L) != 0) {
+
+                    if (data != null) {
+                        // read data.progressBarVisibility
+                        dataProgressBarVisibility = data.getProgressBarVisibility();
+                    }
+            }
         }
         // batch finished
-        if ((dirtyFlags & 0xbL) != 0) {
+        if ((dirtyFlags & 0x13L) != 0) {
             // api target 1
 
             this.mboundView1.setVisibility(dataCommonViewVisibility);
         }
-        if ((dirtyFlags & 0xdL) != 0) {
+        if ((dirtyFlags & 0x19L) != 0) {
             // api target 1
 
-            this.mboundView2.setVisibility(dataErrorViewVisibility);
+            this.mboundView3.setVisibility(dataErrorViewVisibility);
+        }
+        if ((dirtyFlags & 0x15L) != 0) {
+            // api target 1
+
+            this.progressBarVisibility.setVisibility(dataProgressBarVisibility);
         }
     }
     // Listener Stub Implementations
@@ -176,8 +195,9 @@ public class ActivityMainBindingImpl extends ActivityMainBinding  {
     /* flag mapping
         flag 0 (0x1L): data
         flag 1 (0x2L): data.commonViewVisibility
-        flag 2 (0x3L): data.errorViewVisibility
-        flag 3 (0x4L): null
+        flag 2 (0x3L): data.progressBarVisibility
+        flag 3 (0x4L): data.errorViewVisibility
+        flag 4 (0x5L): null
     flag mapping end*/
     //end
 }
