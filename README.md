@@ -15,6 +15,9 @@ Repository app will  give you  the  complete list of all public repositories ava
 
 6.DataBinding -allows you to bind UI components in your layouts to data sources in your app using a declarative format rather than programmatically.
 
+6.Rest Api - (also known as RESTful API) is an application programming interface (API or web API) that conforms to the constraints of REST architectural style and allows for interaction with RESTful web services.
+
+
 <b>SCREENSHOTS</b><br>
 <img src ="screenshot/1.png" width ="150" height ="200"/>
 <img src ="screenshot/2.png" width ="150" height ="200"/>
