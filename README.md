@@ -1,5 +1,5 @@
 # repository
-Repository app is the app which give you  the list of all public repositories  ,with relevant  details .
+Repository app will  give you  the  complete list of all public repositories available   ,with relevant  details .
 
 <b>COMPONENTS USED</b>
 
