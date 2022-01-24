@@ -63,7 +63,7 @@ dependencies {
     // Room Library for storing  data
     implementation room_libraries
 
-    //kapt("androidx.room:room-compiler:2.4.1")
+    kapt("androidx.room:room-compiler:$room_version")
 
 
     // Kotlin co-routines library
@@ -94,6 +94,7 @@ dependencies {
 
     //implementation for koin for dependency injection
     implementation koin_libraries
+
 
     implementation 'com.android.support:multidex:1.0.3'
 

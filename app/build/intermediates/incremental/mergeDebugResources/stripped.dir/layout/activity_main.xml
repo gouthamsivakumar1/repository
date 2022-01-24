@@ -63,21 +63,21 @@
         app:layout_constraintHorizontal_bias="0.0"
         tools:listitem="@layout/repository_list_item" />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-    <com.google.android.material.progressindicator.CircularProgressIndicator
+    <ProgressBar
         android:id="@+id/progressBarVisibility"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:tag="binding_2"                           
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:trackColor="@color/colorPrimary" />
+        android:indeterminateTint="@color/colorPrimary"
+        />
    </androidx.constraintlayout.widget.ConstraintLayout>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:tag="binding_3"                         
+        android:tag="binding_2"                         
         android:background="@color/white">
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvNoInternet"

@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.widget.SearchView
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
 import com.example.employee.R
 import com.example.employee.databinding.ActivityMainBinding
 import com.example.employee.utils.NetworkStatus
@@ -36,25 +35,20 @@ class MainActivity : AppCompatActivity() {
         )
         mViewBinding.data = mViewObserver
         setAdapter()
-        loadApi("")
+
         loadSearchFunctionality()
         loadPullToRefreshFunctionality()
         loadRetryButton()
+        fetchData("")
+
     }
 
-    private fun loadApi(query: String?) {
+    private fun loadData(query: String?) {
         mViewModel.setKeyword(query)
-        if (query.isNullOrEmpty()) {
-            loadData("")
-        } else {
-//            val data = mViewModel.filterData(query)
-//            data?.let {
-//                mAdapter.setData(it.toList())
-//                mAdapter.notifyDataSetChanged()
-//            }
-
-
-        }
+        mViewModel.filterData(query)?.observe(this, { data ->
+            mAdapter.setData(data.toList())
+            mAdapter.notifyDataSetChanged()
+        })
     }
 
 
@@ -66,7 +60,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onQueryTextChange(query: String?): Boolean {
-                loadApi(query)
+                loadData(query)
                 return true
             }
         })
@@ -75,12 +69,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun loadPullToRefreshFunctionality() =
         rlRefresh.setOnRefreshListener {
-            loadApi(mViewModel.getKeyword())
+            loadData(mViewModel.getKeyword())
             rlRefresh.isRefreshing = false
         }
 
-    private fun loadRetryButton()=btnRetry.setRxOnClickListener {
-        loadApi("")
+    private fun loadRetryButton() = btnRetry.setRxOnClickListener {
+        fetchData("")
     }
 
 
@@ -88,20 +82,14 @@ class MainActivity : AppCompatActivity() {
         rvRepository.adapter = mAdapter
     }
 
-    private fun loadData(keyword: String) {
+    private fun fetchData(keyword: String) {
         mViewObserver.setErrorVisibility(false)
-        mViewModel.getDetails(keyword).observe(this, Observer { response ->
+        mViewModel.getDetails(keyword).observe(this,  { response ->
             Log.d("log", response.body.toString())
             when (response.status) {
                 NetworkStatus.SUCCESS -> {
-                    Log.d("Log", "Success")
-                    mViewObserver.setErrorVisibility(false)
                     mViewObserver.setProgressVisibility(false)
-                    response?.body?.let {
-                        mAdapter.setData(it.toList())
-                        mViewModel.setRepositoryData(it)
-                        mAdapter.notifyDataSetChanged()
-                    }
+                    loadData("")
 
                 }
 
@@ -110,7 +98,6 @@ class MainActivity : AppCompatActivity() {
                     mViewObserver.setProgressVisibility(false)
                     response.exception?.let { appException ->
                         if (appException.cause is UnknownHostException || appException.cause is SocketTimeoutException) {
-                            Log.i("wwewe","entered")
                             mViewObserver.setErrorVisibility(true)
                         } else {
                             response.exception.getErrorReponse()?.message?.let {
@@ -131,7 +118,6 @@ class MainActivity : AppCompatActivity() {
                 NetworkStatus.LOADING -> {
                     Log.d("Log", "Loading")
                     mViewObserver.setProgressVisibility(true)
-
 
                 }
 

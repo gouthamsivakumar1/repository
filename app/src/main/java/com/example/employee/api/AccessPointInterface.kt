@@ -14,5 +14,5 @@ import retrofit2.http.*
 interface RestAPIEntity {
 
     @GET("repositories")
-    fun getRepository(@Query("search")search:String?): LiveData<ApiResponse<Array<RepositoryDetailsResponse>>>
+    fun getRepositories(@Query("name")name:String): LiveData<ApiResponse<Array<RepositoryDetailsResponse>>>
 }

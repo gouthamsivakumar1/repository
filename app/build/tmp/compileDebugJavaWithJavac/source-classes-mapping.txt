@@ -1,24 +1,31 @@
 com/example/employee/BR.java
  com.example.employee.BR
-com/example/employee/DataBinderMapperImpl.java
- com.example.employee.DataBinderMapperImpl
- com.example.employee.DataBinderMapperImpl$InnerBrLookup
- com.example.employee.DataBinderMapperImpl$InnerLayoutIdLookup
+com/example/employee/databinding/RepositoryListItemBindingImpl.java
+ com.example.employee.databinding.RepositoryListItemBindingImpl
+androidx/databinding/library/baseAdapters/BR.java
+ androidx.databinding.library.baseAdapters.BR
 com/example/employee/DataBindingTriggerClass.java
  com.example.employee.DataBindingTriggerClass
-com/example/employee/databinding/RepositoryListItemBinding.java
- com.example.employee.databinding.RepositoryListItemBinding
+androidx/databinding/DataBindingComponent.java
+ androidx.databinding.DataBindingComponent
 com/example/employee/BuildConfig.java
  com.example.employee.BuildConfig
 androidx/databinding/DataBinderMapperImpl.java
  androidx.databinding.DataBinderMapperImpl
-com/example/employee/databinding/RepositoryListItemBindingImpl.java
- com.example.employee.databinding.RepositoryListItemBindingImpl
-com/example/employee/databinding/ActivityMainBindingImpl.java
- com.example.employee.databinding.ActivityMainBindingImpl
-androidx/databinding/library/baseAdapters/BR.java
- androidx.databinding.library.baseAdapters.BR
-androidx/databinding/DataBindingComponent.java
- androidx.databinding.DataBindingComponent
+com/example/employee/repository/AppDatabase_Impl.java
+ com.example.employee.repository.AppDatabase_Impl
+ com.example.employee.repository.AppDatabase_Impl$1
+com/example/employee/repository/RepositoryDao_Impl.java
+ com.example.employee.repository.RepositoryDao_Impl
+ com.example.employee.repository.RepositoryDao_Impl$1
+ com.example.employee.repository.RepositoryDao_Impl$2
+com/example/employee/databinding/RepositoryListItemBinding.java
+ com.example.employee.databinding.RepositoryListItemBinding
 com/example/employee/databinding/ActivityMainBinding.java
  com.example.employee.databinding.ActivityMainBinding
+com/example/employee/DataBinderMapperImpl.java
+ com.example.employee.DataBinderMapperImpl
+ com.example.employee.DataBinderMapperImpl$InnerBrLookup
+ com.example.employee.DataBinderMapperImpl$InnerLayoutIdLookup
+com/example/employee/databinding/ActivityMainBindingImpl.java
+ com.example.employee.databinding.ActivityMainBindingImpl

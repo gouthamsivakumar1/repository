@@ -4,6 +4,7 @@ package com.example.employee.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.SearchView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,7 +18,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.example.employee.R;
 import com.example.employee.viewObserver.DetailsViewObserver;
-import com.google.android.material.progressindicator.CircularProgressIndicator;
 import java.lang.Deprecated;
 import java.lang.Object;
 
@@ -29,7 +29,7 @@ public abstract class ActivityMainBinding extends ViewDataBinding {
   public final ConstraintLayout clSearch;
 
   @NonNull
-  public final CircularProgressIndicator progressBarVisibility;
+  public final ProgressBar progressBarVisibility;
 
   @NonNull
   public final SwipeRefreshLayout rlRefresh;
@@ -47,9 +47,9 @@ public abstract class ActivityMainBinding extends ViewDataBinding {
   protected DetailsViewObserver mData;
 
   protected ActivityMainBinding(Object _bindingComponent, View _root, int _localFieldCount,
-      AppCompatButton btnRetry, ConstraintLayout clSearch,
-      CircularProgressIndicator progressBarVisibility, SwipeRefreshLayout rlRefresh,
-      RecyclerView rvRepository, SearchView svSearch, AppCompatTextView tvNoInternet) {
+      AppCompatButton btnRetry, ConstraintLayout clSearch, ProgressBar progressBarVisibility,
+      SwipeRefreshLayout rlRefresh, RecyclerView rvRepository, SearchView svSearch,
+      AppCompatTextView tvNoInternet) {
     super(_bindingComponent, _root, _localFieldCount);
     this.btnRetry = btnRetry;
     this.clSearch = clSearch;

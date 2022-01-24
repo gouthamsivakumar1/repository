@@ -14,7 +14,7 @@ interface RepositoryDao {
     fun insert(repository: RepositoryDetailsResponse)
 
 
-    @Query("SELECT * from RepositoryDetailsResponse Where name Like:recipe||'%' ORDER BY name ASC")
-    fun getList(recipe: String): LiveData<List<RepositoryDetailsResponse>>
+    @Query("SELECT * from RepositoryDetailsResponse Where name Like:keyword||'%' ORDER BY name ASC")
+    fun getList(keyword: String?): LiveData<List<RepositoryDetailsResponse>>
 
 }

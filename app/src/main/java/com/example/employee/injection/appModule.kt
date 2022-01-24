@@ -19,7 +19,7 @@ fun appModule() = module {
 
     single { RestApiService(get()).getRetrofitInstance() }
     single { RestApiService(get()).create(get(), RestAPIEntity::class.java) }
-    single { DetailsRepository(get())}
+    single { DetailsRepository(get(),get())}
     viewModel {RepositoryViewModel(get())}
 
 }
